@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  font-family: 'Inter', sans-serif;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: #f9fbf7;
+  color: #3d4a35;
+}
+
+h1, h2 {
+  font-family: 'Playfair Display', serif;
+}
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #f9fbf7; }
+::-webkit-scrollbar-thumb { background: #4caf2a; border-radius: 4px; }
+
+.slider-handle { cursor: ew-resize; touch-action: none; }
+
+.diagonal-stripes {
+  background-image: repeating-linear-gradient(
+    135deg,
+    rgba(76, 175, 42, 0.04) 0,
+    rgba(76, 175, 42, 0.04) 1px,
+    transparent 1px,
+    transparent 14px
+  );
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); filter: blur(6px); }
+  to   { opacity: 1; transform: translateY(0);    filter: blur(0); }
+}
+
+@keyframes hero-rise {
+  from { opacity: 0; transform: translateY(48px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0)    scale(1); }
+}
+
+.animate-fade-up  { animation: fade-up   0.9s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.animate-hero-rise { animation: hero-rise 1.1s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
